@@ -101,6 +101,7 @@
       download_visible = (options[:download].nil? || options[:download] == true)
       reset_layout_visible = (options[:reset_layout].nil? || options[:reset_layout] == true) && !disable_state_storing
       requireTotalRowCountIndicator = data_table.options[:requireTotalRowCountIndicator] == true
+      url_params = data_table.options[:url_params] || {}
 
       render( :partial => 'data_tables/data_table',
               :locals => {
