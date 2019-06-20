@@ -217,14 +217,17 @@
         }
       },
       height: function() {
+        var new_height = null;
         if (#{height_number}) {
           var dgMargin = dataGrid.outerHeight(true)-dataGrid.outerHeight();
-          return #{height_number} - dgMargin;
+          new_height = #{height_number} - dgMargin;
         } else {
           var screenHeight = $('.navbar-fixed-bottom').offset().top - $('##{container_id}-holder').parent().offset().top;
           var footerHeight = $('footer').height();
-          return screenHeight - footerHeight;
+          new_height = screenHeight - footerHeight;
         }
+        window.setGridHolderHeight = new_height;
+        return new_height
       }
     });
 
